@@ -127,6 +127,7 @@ class AlienInvasion:
             self.stats.reset_stats()
             self.stats.game_active = True
             self.sb.prep_score()
+            self.prep_level()
 
             # Очистка списков пришельцев и снарядов.
             self.aliens.empty()
@@ -197,6 +198,10 @@ class AlienInvasion:
             self.bullets.empty()
             self._create_fleet()
             self.settings.increase_speed()
+
+            # Увеличение уровня.
+            self.stats.level += 1
+            self.sb.prep_level()
 
     def _ship_hit(self):
         """Обрабатывает столкновение корабля с пришельцем."""
